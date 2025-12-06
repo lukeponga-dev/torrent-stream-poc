@@ -8,10 +8,10 @@ const router = express.Router();
 router.get('/:infoHash', (req, res, next) => {
     try {
         const { infoHash } = req.params;
-        const { torrentManager } = req;
+        const { torrentManager, client } = req;
 
         // Get torrent from WebTorrent client
-        const torrent = req.app._client?.get(infoHash);
+        const torrent = client.get(infoHash);
         if (!torrent) {
             res.status(404).json({ error: 'Torrent not found' });
             return;

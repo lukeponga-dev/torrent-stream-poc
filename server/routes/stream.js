@@ -9,10 +9,10 @@ const { streamLimiter, isValidMagnet, sanitizeFilePath } = require('../utils/sec
 router.get('/:infoHash/:fileIndex', streamLimiter, (req, res, next) => {
     try {
         const { infoHash, fileIndex } = req.params;
-        const { torrentManager } = req;
+        const { torrentManager, client } = req;
 
         // Get torrent from WebTorrent client
-        const torrent = req.app._client?.get(infoHash);
+        const torrent = client.get(infoHash);
         if (!torrent) {
             const err = new Error('Torrent not found');
             err.status = 404;

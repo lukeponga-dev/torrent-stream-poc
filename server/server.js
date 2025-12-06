@@ -23,9 +23,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Make torrentManager available to routes
+// Make torrentManager and client available to routes
 app.use((req, res, next) => {
     req.torrentManager = torrentManager;
+    req.client = client;
     next();
 });
 
