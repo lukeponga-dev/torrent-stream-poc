@@ -1,0 +1,202 @@
+.torrent-info {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.torrent-info.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    color: #999;
+    text-align: center;
+}
+
+.torrent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.torrent-header h3 {
+    font-size: 1.1rem;
+    color: #333;
+    word-break: break-word;
+}
+
+.torrent-size {
+    background: #667eea;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.progress-section {
+    margin-bottom: 1rem;
+}
+
+.progress-bar-container {
+    background: #eee;
+    border-radius: 20px;
+    height: 24px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s ease;
+    min-width: 50px;
+}
+
+.progress-text {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    background: #f5f5f5;
+    border-radius: 6px;
+    gap: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 700;
+}
+
+.files-section {
+    margin-top: 1rem;
+}
+
+.files-section h4 {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.files-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.files-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.files-list::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+.file-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.file-button {
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 0.75rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.file-button:hover {
+    background: #f0f0f0;
+    border-color: #667eea;
+}
+
+.file-icon {
+    color: #667eea;
+    font-weight: 600;
+    min-width: 20px;
+}
+
+.file-name {
+    flex: 1;
+    word-break: break-all;
+    color: #333;
+    font-weight: 500;
+}
+
+.file-size {
+    color: #999;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    margin-left: 0.5rem;
+}
+
+.file-details {
+    padding: 0.75rem;
+    background: #f5f5f5;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.file-details p {
+    margin: 0.25rem 0;
+}
+
+.file-details strong {
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .progress-stats {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .stat {
+        padding: 0.5rem;
+    }
+
+    .torrent-header {
+        flex-direction: column;
+    }
+}

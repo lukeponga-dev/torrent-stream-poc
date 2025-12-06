@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: torrent-stream-server
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=production
+      - PORT=8080
+      - CORS_ORIGIN=http://localhost:3000
+      - TORRENT_TEMP_DIR=/tmp/torrents
+      - MAX_TORRENTS=5
+    volumes:
+      - /tmp/torrents:/tmp/torrents
+    restart: unless-stopped
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: torrent-stream-client
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080
+    depends_on:
+      - server
+    restart: unless-stopped
